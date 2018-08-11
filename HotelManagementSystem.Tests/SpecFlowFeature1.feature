@@ -15,5 +15,17 @@ Examples:
 | 2  | hotel2 |
 | 3  | hotel3 |
 
+@ShowHotel
+Scenario: Show all hotels
+	When User calls GetAllHotels api
+	Then Hotels with their details should be displayed in the response
 
+Scenario Outline: Show hotel with id
+	When User calls GetHotelById with '<id>' api
+	Then Hotel with '<id>' should be displayed in the response
 
+Examples: 
+| id | name   |
+| 1  | hotel1 |
+| 2  | hotel2 |
+| 3  | hotel3 |

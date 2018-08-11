@@ -92,6 +92,41 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Show all hotels")]
+        [NUnit.Framework.CategoryAttribute("ShowHotel")]
+        public virtual void ShowAllHotels()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Show all hotels", new string[] {
+                        "ShowHotel"});
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line 20
+ testRunner.When("User calls GetAllHotels api", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+ testRunner.Then("Hotels with their details should be displayed in the response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Show hotel with id")]
+        [NUnit.Framework.TestCaseAttribute("1", "hotel1", null)]
+        [NUnit.Framework.TestCaseAttribute("2", "hotel2", null)]
+        [NUnit.Framework.TestCaseAttribute("3", "hotel3", null)]
+        public virtual void ShowHotelWithId(string id, string name, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Show hotel with id", exampleTags);
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line 24
+ testRunner.When(string.Format("User calls GetHotelById with \'{0}\' api", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+ testRunner.Then(string.Format("Hotel with \'{0}\' should be displayed in the response", id), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

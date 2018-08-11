@@ -20,5 +20,26 @@ namespace HotelManagementSystem.Tests
             var content = response.Content;
             return JsonConvert.DeserializeObject<List<Hotel>>(content);
         }
+
+        public static List<Hotel> GetAllHotels()
+        {
+            var request = new RestRequest("Hotel", Method.GET);
+
+            IRestResponse response = client.Execute(request);
+            var content = response.Content;
+            return JsonConvert.DeserializeObject<List<Hotel>>(content);
+        }
+        public static Hotel GetHotelById(int hotelId)
+        {
+            var request = new RestRequest(string.Format("Hotel/{0}",hotelId), Method.GET);
+            
+            //string json = JsonConvert.SerializeObject(hotelId);
+            //request.AddParameter("application/json", json, ParameterType.UrlSegment);
+
+            IRestResponse response = client.Execute(request);
+            var content = response.Content;
+            return JsonConvert.DeserializeObject<Hotel>(content);
+        }
+
     }
 }

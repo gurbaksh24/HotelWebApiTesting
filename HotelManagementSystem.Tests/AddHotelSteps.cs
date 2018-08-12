@@ -10,7 +10,6 @@ namespace HotelManagementSystem.Tests
     public class AddHotelSteps
     {
         private Hotel hotel = new Hotel();
-        private Hotel addHotelResponse;
         private List<Hotel> hotels = new List<Hotel>();
 
 
